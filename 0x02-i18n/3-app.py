@@ -19,7 +19,7 @@ babel = Babel(app)
 
 
 @app.route('/', strict_slashes=False)
-def index():
+def index() -> str:
     ''' render 3-index.html page in '/' endpoint '''
     return render_template('3-index.html')
 
