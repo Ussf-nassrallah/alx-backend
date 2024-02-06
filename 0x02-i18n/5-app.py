@@ -37,16 +37,11 @@ def get_user() -> Union[Dict, None]:
     return None
 
 
+@app.before_request
 def before_request() -> None:
     ''' befor req '''
     current_user = get_user()
     g.current_user = current_user
-
-
-@app.route('/', strict_slashes=False)
-def index() -> str:
-    ''' render 4-index.html page in '/' endpoint '''
-    return render_template('5-index.html')
 
 
 @babel.localeselector
@@ -58,6 +53,12 @@ def get_locale() -> str:
         return user_locale
 
     return request.accept_languages.best_match(app.config["LANGUAGES"])
+
+
+@app.route('/', strict_slashes=False)
+def index() -> str:
+    ''' render 5-index.html page in '/' endpoint '''
+    return render_template('5-index.html')
 
 
 if __name__ == "__main__":
