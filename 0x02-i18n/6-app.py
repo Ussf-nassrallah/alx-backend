@@ -32,7 +32,7 @@ def get_user() -> Union[Dict, None]:
     user_id = int(id)
 
     if user_id:
-        return users.get(user_id)
+        return users.get(user_id, None)
 
     return None
 
