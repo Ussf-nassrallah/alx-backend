@@ -38,7 +38,7 @@ def get_user() -> Union[Dict, None]:
 
 
 @app.before_request
-def before_request() -> None:
+def before_request():
     ''' befor req '''
     user = get_user()
     g.user = user
