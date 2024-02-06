@@ -40,8 +40,8 @@ def get_user() -> Union[Dict, None]:
 @app.before_request
 def before_request() -> None:
     ''' befor req '''
-    current_user = get_user()
-    g.current_user = current_user
+    user = get_user()
+    g.user = user
 
 
 @babel.localeselector
