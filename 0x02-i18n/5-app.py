@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 ''' flask app '''
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, g
 from flask_babel import Babel
+from typing import Union, Dict
 
 app = Flask(__name__)
 
@@ -25,7 +26,7 @@ users = {
 }
 
 
-def get_user():
+def get_user() -> Union[Dict, None]:
     ''' get user based on id '''
     id = request.args.get('login_as')
     user_id = int(id)
